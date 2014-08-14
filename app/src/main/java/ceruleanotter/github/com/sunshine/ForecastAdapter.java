@@ -16,9 +16,8 @@ import android.widget.ListView;
  */
 
 public class ForecastAdapter extends CursorAdapter {
-    private final int VIEW_TYPE_TODAY = 0;
-    private final int VIEW_TYPE_FUTURE_DAY = 1;
-
+    private static final int VIEW_TYPE_TODAY = 0;
+    private static final int VIEW_TYPE_FUTURE_DAY = 1;
 
 
     /**
@@ -32,7 +31,12 @@ public class ForecastAdapter extends CursorAdapter {
         public final TextView lowTempView;
 
         public ViewHolder(View view) {
+
+
             iconView = (ImageView) view.findViewById(R.id.list_item_icon);
+
+
+
             dateView = (TextView) view.findViewById(R.id.list_item_date_textview);
             descriptionView = (TextView) view.findViewById(R.id.list_item_forecast_textview);
             highTempView = (TextView) view.findViewById(R.id.list_item_high_textview);
@@ -73,10 +77,11 @@ public class ForecastAdapter extends CursorAdapter {
         ViewHolder v = (ViewHolder)view.getTag();
 
         // Read weather icon ID from cursor
-        int weatherId = cursor.getInt(ForecastFragment.COL_WEATHER_ID);
+        int weatherId = cursor.getInt(ForecastFragment.COL_WEATHER_ICON_ID);
         // Use placeholder image for now
 
-        v.iconView.setImageResource(R.drawable.ic_launcher);
+        if (getItemViewType(cursor.getPosition()) == VIEW_TYPE_TODAY)  v.iconView.setImageResource(Utility.getArtResourceForWeatherCondition(weatherId));
+        else v.iconView.setImageResource(Utility.getIconResourceForWeatherCondition(weatherId));
 
         // Read date from cursor
         String dateString = cursor.getString(ForecastFragment.COL_WEATHER_DATE);

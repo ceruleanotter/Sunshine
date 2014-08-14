@@ -54,6 +54,8 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
             WeatherContract.WeatherEntry.COLUMN_PRESSURE,
             WeatherContract.WeatherEntry.COLUMN_WIND_SPEED,
             WeatherContract.WeatherEntry.COLUMN_DEGREES,
+            WeatherContract.WeatherEntry.COLUMN_WEATHER_ID,
+
 
     };
 
@@ -69,6 +71,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
     public static final int COL_WEATHER_PRESSURE = 7;
     public static final int COL_WEATHER_WINDSPEED = 8;
     public static final int COL_WEATHER_DEGREES = 9;
+    public static final int COL_WEATHER_ICON_ID = 10;
 
 
 
@@ -164,6 +167,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
             TextView highText = (TextView)(getView().findViewById(R.id.detail_high_textview));
             TextView lowText = (TextView)(getView().findViewById(R.id.detail_low_textview));*/
             Context context = getActivity();
+            _viewHolder.iconView.setImageResource(Utility.getArtResourceForWeatherCondition(data.getInt(COL_WEATHER_ICON_ID)));
 
             _viewHolder.dateView.setText(Utility.formatDate(data.getString(COL_WEATHER_DATE)));
             _viewHolder.descriptionView.setText(data.getString(COL_WEATHER_DESC));

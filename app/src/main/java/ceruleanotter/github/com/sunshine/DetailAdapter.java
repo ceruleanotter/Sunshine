@@ -66,9 +66,10 @@ public class DetailAdapter extends CursorAdapter {
 
         // Read weather icon ID from cursor
         int weatherId = cursor.getInt(DetailFragment.COL_WEATHER_ID);
-        // Use placeholder image for now
 
-        v.iconView.setImageResource(R.drawable.ic_launcher);
+
+        // set the read image here
+        v.iconView.setImageResource(Utility.getIconResourceForWeatherCondition(weatherId));
 
         // Read date from cursor
         String dateString = cursor.getString(DetailFragment.COL_WEATHER_DATE);
