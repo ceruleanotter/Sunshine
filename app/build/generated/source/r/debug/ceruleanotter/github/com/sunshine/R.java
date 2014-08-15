@@ -817,10 +817,12 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f080005;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f090003;
+        public static final int abc_search_url_text_holo=0x7f090005;
         public static final int abc_search_url_text_normal=0x7f090000;
         public static final int abc_search_url_text_pressed=0x7f090001;
         public static final int abc_search_url_text_selected=0x7f090002;
+        public static final int grey=0x7f090003;
+        public static final int sunshine_light_blue=0x7f090004;
     }
     public static final class dimen {
         public static final int abc_action_bar_default_height=0x7f0b0000;
@@ -953,6 +955,7 @@ containing a value of this type.
         public static final int ic_rain=0x7f020066;
         public static final int ic_snow=0x7f020067;
         public static final int ic_storm=0x7f020068;
+        public static final int touch_selector=0x7f020069;
     }
     public static final class id {
         public static final int action_bar=0x7f0a001c;
@@ -963,28 +966,27 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f0a0023;
         public static final int action_bar_title=0x7f0a0022;
         public static final int action_context_bar=0x7f0a001d;
-        public static final int action_map=0x7f0a004f;
+        public static final int action_map=0x7f0a0050;
         public static final int action_menu_divider=0x7f0a0015;
         public static final int action_menu_presenter=0x7f0a0016;
         public static final int action_mode_close_button=0x7f0a0024;
-        public static final int action_refresh=0x7f0a004e;
-        public static final int action_settings=0x7f0a004c;
-        public static final int action_share=0x7f0a004d;
+        public static final int action_refresh=0x7f0a004f;
+        public static final int action_settings=0x7f0a004d;
+        public static final int action_share=0x7f0a004e;
         public static final int activity_chooser_view_content=0x7f0a0025;
         public static final int always=0x7f0a000f;
         public static final int beginning=0x7f0a000a;
         public static final int checkbox=0x7f0a002d;
         public static final int collapseActionView=0x7f0a0011;
-        public static final int container=0x7f0a003c;
         public static final int default_activity_button=0x7f0a0028;
-        public static final int detail_date_textview=0x7f0a003d;
-        public static final int detail_forecast_textview=0x7f0a0041;
-        public static final int detail_high_textview=0x7f0a003e;
-        public static final int detail_humidity_textview=0x7f0a0042;
-        public static final int detail_icon=0x7f0a0040;
-        public static final int detail_low_textview=0x7f0a003f;
-        public static final int detail_pressure_textview=0x7f0a0044;
-        public static final int detail_wind_textview=0x7f0a0043;
+        public static final int detail_date_textview=0x7f0a003e;
+        public static final int detail_forecast_textview=0x7f0a0042;
+        public static final int detail_high_textview=0x7f0a003f;
+        public static final int detail_humidity_textview=0x7f0a0043;
+        public static final int detail_icon=0x7f0a0041;
+        public static final int detail_low_textview=0x7f0a0040;
+        public static final int detail_pressure_textview=0x7f0a0045;
+        public static final int detail_wind_textview=0x7f0a0044;
         public static final int dialog=0x7f0a0012;
         public static final int disableHome=0x7f0a0008;
         public static final int dropdown=0x7f0a0013;
@@ -992,7 +994,8 @@ containing a value of this type.
         public static final int end=0x7f0a000c;
         public static final int expand_activities_button=0x7f0a0026;
         public static final int expanded_menu=0x7f0a002c;
-        public static final int framelayout_sunshine=0x7f0a0045;
+        public static final int fragment_forecast=0x7f0a003d;
+        public static final int framelayout_sunshine=0x7f0a0046;
         public static final int home=0x7f0a0017;
         public static final int homeAsUp=0x7f0a0005;
         public static final int icon=0x7f0a002a;
@@ -1000,12 +1003,12 @@ containing a value of this type.
         public static final int image=0x7f0a0027;
         public static final int listMode=0x7f0a0001;
         public static final int list_item=0x7f0a0029;
-        public static final int list_item_date_textview=0x7f0a0048;
-        public static final int list_item_forecast_textview=0x7f0a0049;
-        public static final int list_item_high_textview=0x7f0a004a;
-        public static final int list_item_icon=0x7f0a0047;
-        public static final int list_item_low_textview=0x7f0a004b;
-        public static final int listview_forecast=0x7f0a0046;
+        public static final int list_item_date_textview=0x7f0a0049;
+        public static final int list_item_forecast_textview=0x7f0a004a;
+        public static final int list_item_high_textview=0x7f0a004b;
+        public static final int list_item_icon=0x7f0a0048;
+        public static final int list_item_low_textview=0x7f0a004c;
+        public static final int listview_forecast=0x7f0a0047;
         public static final int middle=0x7f0a000b;
         public static final int never=0x7f0a000d;
         public static final int none=0x7f0a0009;
@@ -1034,6 +1037,7 @@ containing a value of this type.
         public static final int top_action_bar=0x7f0a0020;
         public static final int up=0x7f0a0021;
         public static final int useLogo=0x7f0a0003;
+        public static final int weather_detail_container=0x7f0a003c;
         public static final int withText=0x7f0a0010;
     }
     public static final class integer {
@@ -1067,10 +1071,11 @@ containing a value of this type.
         public static final int activity_detail=0x7f040018;
         public static final int activity_main=0x7f040019;
         public static final int fragment_detail=0x7f04001a;
-        public static final int fragment_main=0x7f04001b;
-        public static final int list_item_forecast=0x7f04001c;
-        public static final int list_item_forecast_today=0x7f04001d;
-        public static final int support_simple_spinner_dropdown_item=0x7f04001e;
+        public static final int fragment_detail_wide=0x7f04001b;
+        public static final int fragment_main=0x7f04001c;
+        public static final int list_item_forecast=0x7f04001d;
+        public static final int list_item_forecast_today=0x7f04001e;
+        public static final int support_simple_spinner_dropdown_item=0x7f04001f;
     }
     public static final class menu {
         public static final int detail=0x7f0f0000;
@@ -1138,6 +1143,7 @@ containing a value of this type.
     }
     public static final class style {
         /**  Customize your theme here. 
+ Customize your theme here. 
          */
         public static final int AppTheme=0x7f0e0000;
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0e0001;
@@ -1195,11 +1201,11 @@ containing a value of this type.
         public static final int Theme_Base_AppCompat_Dialog_FixedSize=0x7f0e0035;
         public static final int Theme_Base_AppCompat_Dialog_Light_FixedSize=0x7f0e0036;
         public static final int Theme_Base_AppCompat_DialogWhenLarge=0x7f0e0037;
-        public static final int Theme_Base_AppCompat_DialogWhenLarge_Base=0x7f0e008a;
+        public static final int Theme_Base_AppCompat_DialogWhenLarge_Base=0x7f0e008b;
         public static final int Theme_Base_AppCompat_Light=0x7f0e0038;
         public static final int Theme_Base_AppCompat_Light_DarkActionBar=0x7f0e0039;
         public static final int Theme_Base_AppCompat_Light_DialogWhenLarge=0x7f0e003a;
-        public static final int Theme_Base_AppCompat_Light_DialogWhenLarge_Base=0x7f0e008b;
+        public static final int Theme_Base_AppCompat_Light_DialogWhenLarge_Base=0x7f0e008c;
         public static final int Theme_Base_Light=0x7f0e003b;
         public static final int Widget_AppCompat_ActionBar=0x7f0e003c;
         public static final int Widget_AppCompat_ActionBar_Solid=0x7f0e003d;
@@ -1279,6 +1285,7 @@ containing a value of this type.
         public static final int Widget_AppCompat_ProgressBar=0x7f0e0087;
         public static final int Widget_AppCompat_ProgressBar_Horizontal=0x7f0e0088;
         public static final int Widget_AppCompat_Spinner_DropDown_ActionBar=0x7f0e0089;
+        public static final int listViewLayoutBase_main=0x7f0e008a;
     }
     public static final class xml {
         public static final int pref_data_sync=0x7f060000;

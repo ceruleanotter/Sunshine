@@ -2,16 +2,16 @@
 <merger version="2" >
 
     <dataSet config="unspecified" >
-        <source path="/Users/lyla/Documents/Udacity/Courses/CS333/Projects/Sunshine/app/build/intermediates/exploded-aar/Sunshine.libraries/viewserver/unspecified/assets" />
+        <source path="/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/build/intermediates/exploded-aar/Sunshine.libraries/viewserver/unspecified/assets" />
     </dataSet>
     <dataSet config="19.1.0" >
-        <source path="/Users/lyla/Documents/Udacity/Courses/CS333/Projects/Sunshine/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/assets" />
+        <source path="/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/assets" />
     </dataSet>
     <dataSet config="main" >
-        <source path="/Users/lyla/Documents/Udacity/Courses/CS333/Projects/Sunshine/app/src/main/assets" />
+        <source path="/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/assets" />
     </dataSet>
     <dataSet config="debug" >
-        <source path="/Users/lyla/Documents/Udacity/Courses/CS333/Projects/Sunshine/app/src/debug/assets" />
+        <source path="/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/debug/assets" />
     </dataSet>
 
 </merger>

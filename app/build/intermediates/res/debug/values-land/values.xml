@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS333/Projects/Sunshine/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/res/values-land/values.xml -->
+    <!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/res/values-land/values.xml -->
     <eat-comment />
 
     <bool name="abc_action_bar_embed_tabs_pre_jb">true</bool>
@@ -15,5 +15,9 @@
     <dimen name="abc_action_bar_subtitle_text_size">12dp</dimen>
     <dimen name="abc_action_bar_subtitle_top_margin">-2dp</dimen>
     <dimen name="abc_action_bar_title_text_size">16dp</dimen>
+    <!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/values-land/refs.xml -->
+    <eat-comment />
+
+    <item name="fragment_detail" type="layout">@layout/fragment_detail_wide</item>
 
 </resources>

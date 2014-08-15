@@ -7,6 +7,8 @@
     android:gravity="center_vertical"
     android:minHeight="?android:attr/listPreferredItemHeight"
     android:padding="16dp"
+    android:background="@drawable/touch_selector"
+
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
@@ -80,4 +82,4 @@
 
 
 
-</LinearLayout><!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS333/Projects/Sunshine/app/src/main/res/layout/list_item_forecast.xml -->
+</LinearLayout><!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/layout/list_item_forecast.xml -->

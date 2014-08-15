@@ -2,6 +2,7 @@ package ceruleanotter.github.com.sunshine;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -10,19 +11,48 @@ import android.view.MenuItem;
 import com.android.debug.hv.ViewServer;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements Callback {
     private final String LOG_TAG = MainActivity.class.getSimpleName();
+    private boolean mTwoPane;
+
+    @Override
+    public void onItemSelected(String date) {
+        if (mTwoPane) {
+            //tablet
+            DetailFragment dt = new DetailFragment();
+            Bundle dateargs = new Bundle();
+            dateargs.putString(ForecastFragment.WEATHER_DATE_ARG, date);
+            dt.setArguments(dateargs);
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.weather_detail_container, dt)
+                    .commit();
+        } else {
+            //phone
+            Intent startDetailView = new Intent(this, DetailActivity.class);
+            startDetailView.putExtra(ForecastFragment.WEATHER_DATE_ARG, date);
+            startActivity(startDetailView);
+        }
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.v(LOG_TAG, "on Create Called");
-
         setContentView(R.layout.activity_main);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new ForecastFragment())
-                    .commit();
+        if(this.findViewById(R.id.weather_detail_container) != null) {
+            mTwoPane = true;
+            if (savedInstanceState == null) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.weather_detail_container, new DetailFragment())
+                        .commit();
+            }
+        } else {
+            mTwoPane = false;
         }
+        ForecastFragment f = ((ForecastFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_forecast));
+        f.mForecastAdapter.setmUseTodayLayout(!mTwoPane);
+
         ViewServer.get(this).addWindow(this);
 
     }

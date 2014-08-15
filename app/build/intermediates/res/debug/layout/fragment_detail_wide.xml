@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/detail_date_textview"
+            android:text="Today\nJune 14th"
+            android:padding="5dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="left"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:paddingLeft="10dp"
+            >
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/detail_high_textview"
+                android:text="70°"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:padding="2dp"/>
+
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/detail_low_textview"
+                android:text="55°"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:padding="2dp"/>
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/detail_humidity_textview"
+                android:text="Humidity: 84%"
+                android:padding="5dp"
+                />
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/detail_wind_textview"
+                android:text="Wind: 6km/h NW"
+                android:padding="5dp"
+                />
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/detail_pressure_textview"
+                android:text="Pressure: 1040 hPa"
+                android:padding="5dp"
+                />
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher"
+                android:gravity="top"
+                android:layout_weight="1"
+
+
+                android:id="@+id/detail_icon"/>
+
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/detail_forecast_textview"
+                android:text="Clear"
+                android:padding="5dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+<!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/layout/fragment_detail_wide.xml -->

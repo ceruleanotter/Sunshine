@@ -120,12 +120,19 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        Intent intent = getActivity().getIntent();
-        boolean l = intent.hasExtra(ForecastFragment.WEATHER_DATA_INTENT_EXTRA);
 
-        if(intent != null && intent.hasExtra(ForecastFragment.WEATHER_DATA_INTENT_EXTRA)) {
-            _date = intent.getStringExtra(ForecastFragment.WEATHER_DATA_INTENT_EXTRA);
+
+        //Intent intent = getActivity().getIntent();
+        //if(intent != null && intent.hasExtra(ForecastFragment.WEATHER_DATE_ARG)) {
+        //    _date = intent.getStringExtra(ForecastFragment.WEATHER_DATE_ARG);
+        //} else
+        Bundle lylaargs = this.getArguments();
+        if (lylaargs != null && lylaargs.containsKey(ForecastFragment.WEATHER_DATE_ARG)) {
+            _date = lylaargs.getString(ForecastFragment.WEATHER_DATE_ARG);
         }
+
+
+
         //_date = args.getString(ForecastFragment.WEATHER_DATA_INTENT_EXTRA);
 
         if(_date != null) {
@@ -145,7 +152,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
             );
 
         } else {
-            Log.e(LOG_TAG, "date was null, life sucks");
+            Log.e(LOG_TAG, "Maybe it's a tablet?");
 
         }
         return null;
@@ -205,10 +212,21 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+//        Intent intent = getActivity().getIntent();
+//
+//        if(intent != null && intent.hasExtra(ForecastFragment.WEATHER_DATA_INTENT_EXTRA)) {
+//
+//        }
+
+
         if(savedInstanceState != null && savedInstanceState.containsKey(LOCATION_KEY)) {
+            mLocation = savedInstanceState.getString(LOCATION_KEY);
             getLoaderManager().initLoader(DETAIL_LOADER, savedInstanceState, this);
 
-        } else {
+        }
+
+
+        if (this.getArguments() != null && this.getArguments().containsKey(ForecastFragment.WEATHER_DATE_ARG)) {
             getLoaderManager().initLoader(DETAIL_LOADER, null, this);
         }
 
@@ -226,9 +244,10 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
     @Override
     public void onResume() {
         super.onResume();
-        if (mLocation != null && mLocation != Utility.getPreferredLocation(getActivity())) {
+        if (mLocation != null && mLocation != Utility.getPreferredLocation(getActivity()) &&
+                this.getArguments() != null && this.getArguments().containsKey(ForecastFragment.WEATHER_DATE_ARG) ) {
             getLoaderManager().restartLoader(DETAIL_LOADER,null,this);
-
         }
+
     }
 }

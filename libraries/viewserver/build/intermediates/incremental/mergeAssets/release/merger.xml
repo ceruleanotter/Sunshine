@@ -2,10 +2,10 @@
 <merger version="2" >
 
     <dataSet config="main" >
-        <source path="/Users/lyla/Documents/Udacity/Courses/CS333/Projects/Sunshine/libraries/viewserver/src/main/assets" />
+        <source path="/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/libraries/viewserver/src/main/assets" />
     </dataSet>
     <dataSet config="release" >
-        <source path="/Users/lyla/Documents/Udacity/Courses/CS333/Projects/Sunshine/libraries/viewserver/src/release/assets" />
+        <source path="/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/libraries/viewserver/src/release/assets" />
     </dataSet>
 
 </merger>

@@ -12,11 +12,16 @@ public class DetailActivity extends ActionBarActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
-
         if (savedInstanceState == null) {
+            DetailFragment dt = new DetailFragment();
+            Bundle dateargs = new Bundle();
+            dateargs.putString(ForecastFragment.WEATHER_DATE_ARG, getIntent().getStringExtra(ForecastFragment.WEATHER_DATE_ARG));
+            dt.setArguments(dateargs);
+
+
+
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new DetailFragment())
+                    .replace(R.id.weather_detail_container, dt)
                     .commit();
         }
 

@@ -4,6 +4,7 @@ package ceruleanotter.github.com.sunshine;
  * Created by lyla on 7/13/14.
  */
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -37,7 +38,8 @@ import ceruleanotter.github.com.sunshine.data.WeatherContract.WeatherEntry;
 public class ForecastFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
     private final String LOG_TAG = ForecastFragment.class.getSimpleName();
     //private final String ZIPCODE_INTENT_EXTRA = "77096";
-    public static final String WEATHER_DATA_INTENT_EXTRA = "weatherData";
+    public static final String WEATHER_DATE_ARG = "weatherData";
+    public static final String SAVED_POSITION_ARG = "savedPosition";
     public static final String ZIPCODE_INTENT_EXTRA = "zipcode";
     public ArrayList<String> _forecastEntries;
     ListView _ls;
@@ -47,6 +49,7 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
 
     private static final int FORECAST_LOADER = 0;
     private String mLocation;
+    private int mPosition;
 
 
 
@@ -123,30 +126,30 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+
+
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         _ls = (ListView) (rootView.findViewById(R.id.listview_forecast));
 
         _ls.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
-                Intent startDetailView = new Intent(getActivity(), DetailActivity.class);
+                Callback parentactivity = (Callback)getActivity();
 
                 ForecastAdapter adap = (ForecastAdapter)adapterView.getAdapter();
                 Cursor cursor = adap.getCursor();
-                if (cursor != null && cursor.moveToPosition(position)) {
-                    //boolean isMet = Utility.isMetric(getActivity());
-                    //String max = Utility.formatTemperature(cursor.getDouble(COL_WEATHER_MAX_TEMP), isMet);
-                    //String min = Utility.formatTemperature(cursor.getDouble(COL_WEATHER_MIN_TEMP), isMet);
-                    //String date = Utility.formatDate(cursor.getString(COL_WEATHER_DATE));
-                    //String desc = cursor.getString(COL_WEATHER_DESC);
-                    //String weatherExtra = String.format("%s - %s - %s/%s", date, desc, max, min);
-                    String date = cursor.getString(COL_WEATHER_DATE);
+                mPosition = position;
 
-                    startDetailView.putExtra(WEATHER_DATA_INTENT_EXTRA, date);
-                    startActivity(startDetailView);
+
+
+                if (cursor != null && cursor.moveToPosition(position)) {
+
+                    String date = cursor.getString(COL_WEATHER_DATE);
+                    parentactivity.onItemSelected(cursor.getString(COL_WEATHER_DATE));
+
+
                 }
-                //Toast.makeText(getActivity().getApplicationContext(), (String)adapterView.getAdapter().getItem(i), Toast.LENGTH_SHORT).show();
+
             }
 
 
@@ -162,50 +165,17 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
                 null,
                 0
 
-                /*R.layout.list_item_forecast,
-                null,
-                // the column names to use to fill the textviews
-                new String[]{WeatherContract.WeatherEntry.COLUMN_DATETEXT,
-                        WeatherContract.WeatherEntry.COLUMN_SHORT_DESC,
-                        WeatherContract.WeatherEntry.COLUMN_MAX_TEMP,
-                        WeatherContract.WeatherEntry.COLUMN_MIN_TEMP
-                },
-                // the textviews to fill with the data pulled from the columns above
-                new int[]{R.id.list_item_date_textview,
-                        R.id.list_item_forecast_textview,
-                        R.id.list_item_high_textview,
-                        R.id.list_item_low_textview
-                },
-                0*/
         );
 
 
-        /*mForecastAdapter.setViewBinder(new ForecastAdapter.ViewBinder() {
-            @Override
-            public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
-                boolean isMetric = Utility.isMetric(getActivity());
-                switch (columnIndex) {
-                    case COL_WEATHER_MAX_TEMP:
-                    case COL_WEATHER_MIN_TEMP: {
-                        // we have to do some formatting and possibly a conversion
-                        ((TextView) view).setText(Utility.formatTemperature(
-                                cursor.getDouble(columnIndex), isMetric) + "°");
-                        return true;
-                    }
-                    case COL_WEATHER_DATE: {
-                        String dateString = cursor.getString(columnIndex);
-                        TextView dateView = (TextView) view;
-                        dateView.setText(Utility.formatDate(dateString));
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });*/
+
 
         _ls.setAdapter(mForecastAdapter);
 
 
+        if (savedInstanceState != null && savedInstanceState.containsKey(ForecastFragment.SAVED_POSITION_ARG)) {
+            mPosition = savedInstanceState.getInt(ForecastFragment.SAVED_POSITION_ARG);
+        }
 
         return rootView;
     }
@@ -273,6 +243,16 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
         if ( mLocation != null && !mLocation.equals(Utility.getPreferredLocation(getActivity())) ) {
             getLoaderManager().restartLoader(FORECAST_LOADER, null, this);
         }
+
+
+
+        if (mPosition != ListView.INVALID_POSITION ) {
+            //_ls.smoothScrollToPosition(mPosition);
+            _ls.setSelection(mPosition);
+            _ls.setItemChecked(mPosition, true);
+
+        }
+
     }
 
     @Override
@@ -283,6 +263,13 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         getLoaderManager().initLoader(FORECAST_LOADER, null, this);
+        this.updateWeather();
         super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt(ForecastFragment.SAVED_POSITION_ARG,mPosition);
+        super.onSaveInstanceState(outState);
     }
 }

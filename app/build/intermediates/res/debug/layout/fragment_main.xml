@@ -12,8 +12,9 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/listview_forecast" />
-
+        android:id="@+id/listview_forecast"
+        style="@style/listViewLayoutBase_main"
+        />
 
 </FrameLayout>
-<!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS333/Projects/Sunshine/app/src/main/res/layout/fragment_main.xml -->
+<!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/layout/fragment_main.xml -->
