@@ -118,8 +118,12 @@
     <!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/values/colors.xml -->
     <eat-comment />
 
+    <color name="black">#000000</color>
     <color name="grey">#cccccc</color>
+    <color name="grey_700">#646464</color>
+    <color name="sunshine_blue">#ff1ca8f4</color>
     <color name="sunshine_light_blue">#ff64c2f4</color>
+    <color name="sunshine_white">#ffffff</color>
     <!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/res/values/values.xml -->
     <eat-comment />
 
@@ -591,6 +595,7 @@
 
     <string name="action_settings">Settings</string>
     <string name="app_name">Sunshine</string>
+    <string name="content_authority">ceruleanotter.github.com.sunshine</string>
     <string name="detail_share">Share Weather</string>
     <string name="forecast_map">Map Location</string>
     <string name="forecast_refresh">Refresh</string>
@@ -631,6 +636,7 @@
     <!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/values/strings.xml -->
     <eat-comment />
 
+    <string name="sync_account_type">sunshine.com.github.ceruleanotter</string>
     <string name="title_activity_detail">DetailActivity</string>
     <!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/values/strings_activity_settings.xml -->
     <eat-comment />
@@ -644,8 +650,21 @@
     <!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/values/styles.xml -->
     <eat-comment />
 
+    <style name="ActionBar.Solid.Sunshine" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@color/sunshine_blue</item>
+    </style>
+
+    <style name="ActionBar.Solid.Sunshine.NoTitle" parent="@style/ActionBar.Solid.Sunshine">
+        <item name="displayOptions">useLogo|showHome</item>
+        <item name="logo">@drawable/ic_logo</item>
+    </style>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <item name="actionBarStyle">@style/ActionBar.Solid.Sunshine</item>
+    </style>
+
+    <style name="ForecastTheme" parent="AppTheme">
+        <item name="actionBarStyle">@style/ActionBar.Solid.Sunshine.NoTitle</item>
     </style>
     <!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/res/values/values.xml -->
     <eat-comment />

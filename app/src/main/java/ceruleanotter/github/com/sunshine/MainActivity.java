@@ -1,5 +1,6 @@
 package ceruleanotter.github.com.sunshine;
 
+import android.app.AlarmManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -9,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.android.debug.hv.ViewServer;
+
+
 
 
 public class MainActivity extends ActionBarActivity implements Callback {
@@ -54,6 +57,11 @@ public class MainActivity extends ActionBarActivity implements Callback {
         f.mForecastAdapter.setmUseTodayLayout(!mTwoPane);
 
         ViewServer.get(this).addWindow(this);
+
+        
+
+
+
 
     }
 

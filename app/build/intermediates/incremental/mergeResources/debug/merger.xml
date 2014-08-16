@@ -8726,7 +8726,15 @@ false
                 qualifiers="" >
                 <color name="sunshine_light_blue" >#ff64c2f4
                 </color>
+                <color name="grey_700" >#646464
+                </color>
+                <color name="sunshine_white" >#ffffff
+                </color>
+                <color name="sunshine_blue" >#ff1ca8f4
+                </color>
                 <color name="grey" >#cccccc
+                </color>
+                <color name="black" >#000000
                 </color>
             </file>
             <file
@@ -8743,6 +8751,8 @@ false
                 <string name="hello_world" >Hello world!
                 </string>
                 <string name="today" >Today
+                </string>
+                <string name="sync_account_type" >sunshine.com.github.ceruleanotter
                 </string>
                 <string name="forecast_map" >Map Location
                 </string>
@@ -8783,6 +8793,8 @@ false
 <ns1:g id="pressure" >
 %1.0f
                     </ns1:g> hPa
+                </string>
+                <string name="content_authority" >ceruleanotter.github.com.sunshine
                 </string>
                 <string name="tomorrow" >Tomorrow
                 </string>
@@ -8955,11 +8967,39 @@ Never
                 <style
                     name="AppTheme"
                     parent="Theme.AppCompat.Light.DarkActionBar" >
+                    <item name="actionBarStyle">
+@style/ActionBar.Solid.Sunshine
+                    </item>
+                </style>
 
-                    <!-- Customize your theme here. -->
+                <style
+                    name="ForecastTheme"
+                    parent="AppTheme" >
+                    <item name="actionBarStyle">
+@style/ActionBar.Solid.Sunshine.NoTitle
+                    </item>
+                </style>
+
+                <style
+                    name="ActionBar.Solid.Sunshine.NoTitle"
+                    parent="@style/ActionBar.Solid.Sunshine" >
+                    <item name="displayOptions">
+useLogo|showHome
+                    </item>
+                    <item name="logo">
+@drawable/ic_logo
+                    </item>
                 </style>
 
                 <style name="listViewLayoutBase_main" >
+                </style>
+
+                <style
+                    name="ActionBar.Solid.Sunshine"
+                    parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse" >
+                    <item name="background">
+@color/sunshine_blue
+                    </item>
                 </style>
             </file>
             <file
@@ -8995,6 +9035,45 @@ singleChoice
                     parent="Theme.AppCompat.Light.DarkActionBar" >
 
                     <!-- Customize your theme here. -->
+                </style>
+            </file>
+            <file
+                path="/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/values-v14/styles.xml"
+                qualifiers="v14" >
+
+                <style
+                    name="ActionBar.Solid.Sunshine"
+                    parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse" >
+                    <item name="android:background">
+@color/sunshine_blue
+                    </item>
+                </style>
+
+                <style
+                    name="ForecastTheme"
+                    parent="AppTheme" >
+                    <item name="android:actionBarStyle">
+@style/ActionBar.Solid.Sunshine.NoTitle
+                    </item>
+                </style>
+
+                <style
+                    name="ActionBar.Solid.Sunshine.NoTitle"
+                    parent="@style/ActionBar.Solid.Sunshine" >
+                    <item name="android:displayOptions">
+useLogo|showHome
+                    </item>
+                    <item name="android:logo">
+@drawable/ic_logo
+                    </item>
+                </style>
+
+                <style
+                    name="AppTheme"
+                    parent="Theme.AppCompat.Light.DarkActionBar" >
+                    <item name="android:actionBarStyle">
+@style/ActionBar.Solid.Sunshine
+                    </item>
                 </style>
             </file>
             <file

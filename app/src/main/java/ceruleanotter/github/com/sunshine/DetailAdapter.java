@@ -32,6 +32,7 @@ public class DetailAdapter extends CursorAdapter {
         public final TextView humidityView;
         public final TextView pressureView;
         public final TextView windView;
+        public final ViewtasticView faceView;
         public DetailViewHolder(View view) {
             iconView = (ImageView) view.findViewById(R.id.detail_icon);
             dateView = (TextView) view.findViewById(R.id.detail_date_textview);
@@ -41,6 +42,7 @@ public class DetailAdapter extends CursorAdapter {
             humidityView = (TextView) view.findViewById(R.id.detail_humidity_textview);
             pressureView = (TextView) view.findViewById(R.id.detail_pressure_textview);
             windView = (TextView) view.findViewById(R.id.detail_wind_textview);
+            faceView = (ViewtasticView) view.findViewById(R.id.faceView);
         }
     }
 
@@ -105,5 +107,8 @@ public class DetailAdapter extends CursorAdapter {
         float wind = cursor.getFloat(DetailFragment.COL_WEATHER_WINDSPEED);
         float degrees = cursor.getFloat(DetailFragment.COL_WEATHER_DEGREES);
         v.pressureView.setText(Utility.getFormattedWind(context, wind, degrees));
+
+
+        v.faceView.setEmotion( (Math.random() > 0.5) ? true : false);
     }
 }

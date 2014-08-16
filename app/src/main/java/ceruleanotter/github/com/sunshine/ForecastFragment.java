@@ -5,6 +5,10 @@ package ceruleanotter.github.com.sunshine;
  */
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -31,6 +35,8 @@ import java.util.Date;
 import ceruleanotter.github.com.sunshine.data.WeatherContract;
 import ceruleanotter.github.com.sunshine.data.WeatherContract.LocationEntry;
 import ceruleanotter.github.com.sunshine.data.WeatherContract.WeatherEntry;
+import ceruleanotter.github.com.sunshine.service.SunshineService;
+
 
 /**
  * A placeholder fragment containing a simple view.
@@ -196,12 +202,26 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
 
 
     public void updateWeather() {
+        //ContentResolver.requestSync(account, getString(R.string.content_authority), null);
 
-        FetchWeatherTask ft = new FetchWeatherTask(getActivity());
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity().getApplicationContext());
+
+        //FetchWeatherTask ft = new FetchWeatherTask(getActivity());
+        Intent alarmIntent = new Intent(getActivity(), SunshineService.AlarmReceiver.class);
+        alarmIntent.putExtra(SunshineService.LOCATION_QUERY, Utility.getPreferredLocation(getActivity()));
+
+        PendingIntent pi = PendingIntent.getBroadcast(getActivity(), 0,alarmIntent,PendingIntent.FLAG_ONE_SHOT);//getBroadcast(context, 0, i, 0);
+
+        AlarmManager am=(AlarmManager)getActivity().getSystemService(Context.ALARM_SERVICE);
+        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pi);
+
+        //Log.e(LOG_TAG, "got here");
+
+
+         // Millisec * Second * Minute
+
         //String zip = prefs.getString(getString(R.string.pref_key_location), getString(R.string.pref_default_location));
 
-        ft.execute(Utility.getPreferredLocation(getActivity()));
+        //ft.execute(Utility.getPreferredLocation(getActivity()));
     }
 
 

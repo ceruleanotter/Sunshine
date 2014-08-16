@@ -185,7 +185,7 @@ public class DetailFragment extends Fragment implements LoaderManager.LoaderCall
             _viewHolder.windView.setText(Utility.getFormattedWind(context,data.getFloat(COL_WEATHER_WINDSPEED),data.getFloat(COL_WEATHER_DEGREES)));
             mForecastShareString =  String.format("%s - %s - %s/%s", _viewHolder.dateView.getText(),
                     _viewHolder.descriptionView.getText(), _viewHolder.highTempView.getText(), _viewHolder.lowTempView.getText()) + " #SunshineApp";
-
+            _viewHolder.faceView.setEmotion( (Math.random() > 0.5) ? true : false);
                 /*String informationFromData = String.format("%s - %s - %s/%s", ,
                         data.getString(COL_WEATHER_DESC), data.getString(COL_WEATHER_MAX_TEMP),
                         data.getString(COL_WEATHER_MIN_TEMP));*/

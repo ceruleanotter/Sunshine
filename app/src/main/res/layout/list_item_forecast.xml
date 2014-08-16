@@ -1,85 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    android:orientation="horizontal"
+<!-- Layout for weather forecast list item for future day (not today) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:padding="16dp"
-    android:background="@drawable/touch_selector"
+    android:orientation="horizontal"
+    android:background="@drawable/touch_selector">
 
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:src="@drawable/ic_launcher"
-        android:gravity="center_vertical"
-        android:layout_weight="0.5"
-        android:padding="@dimen/abc_action_bar_icon_vertical_padding"
-        android:id="@+id/list_item_icon"/>
-
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:layout_gravity="center_vertical">
 
-
-        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/list_item_date_textview"
-            android:text="Today"
-            android:gravity="left"
-            android:padding="5dp"
-
-            />
-
-        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        >
+        <ImageView
+            android:id="@+id/list_item_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="7"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/list_item_date_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textAppearance="?android:textAppearanceLarge"/>
+
+        <TextView
             android:id="@+id/list_item_forecast_textview"
-            android:text="Clear"
-            android:padding="5dp"
-            android:gravity="left"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textAppearance="?android:textAppearanceSmall"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="5"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_weight="0.5"
-        android:layout_gravity="center_vertical">
+        android:orientation="vertical">
 
-
-        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <TextView
             android:id="@+id/list_item_high_textview"
-            android:text="70°"
-            android:padding="5dp"
-            android:gravity="right"/>
-
-
-        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textAppearance="?android:textAppearanceLarge"/>
+
+        <TextView
             android:id="@+id/list_item_low_textview"
-            android:text="55°"
-            android:padding="5dp"
-            android:gravity="right"/>
-
-
-
-        </LinearLayout>
-
-
-
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textAppearance="?android:textAppearanceSmall"/>
+    </LinearLayout>
 
 </LinearLayout>
