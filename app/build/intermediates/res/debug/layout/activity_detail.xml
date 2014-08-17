@@ -4,4 +4,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.android.sunshine.app.DetailActivity"
-    tools:ignore="MergeRootFrame" /><!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/layout/activity_detail.xml -->
+    tools:ignore="MergeRootFrame" /><!-- From: file:/home/lyla/AndroidStudioProjects/Sunshine/app/src/main/res/layout/activity_detail.xml -->

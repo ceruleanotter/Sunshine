@@ -7,4 +7,4 @@ tools:context="com.example.android.sunshine.app.ForecastFragment"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:layout="@android:layout/list_content"/>
-<!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/layout/activity_main.xml -->
+<!-- From: file:/home/lyla/AndroidStudioProjects/Sunshine/app/src/main/res/layout/activity_main.xml -->

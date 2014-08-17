@@ -52,9 +52,34 @@
             android:syncable="true"
             android:name=".data.WeatherProvider"
             android:exported="false"/>
+
+        <!-- Note, in the android article, it said you should have provider appended to the authorities, it doesn't in the udacity git account though -->
         <service android:name=".service.SunshineService"
             />
         <receiver android:name=".service.SunshineService$AlarmReceiver" android:enabled="true"/>
+
+
+        <service
+            android:name=".sync.SunshineAuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+
+
+        <service
+            android:name=".sync.SunshineSyncService"
+            android:exported="true"
+            android:process=":sync">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter" />
+        </service>
 
 
 

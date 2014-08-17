@@ -12,4 +12,4 @@
 
     <!-- Default, "just hangin' out" state. -->
     <item android:drawable="@android:color/transparent" />
-</selector><!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/drawable/touch_selector.xml -->
+</selector><!-- From: file:/home/lyla/AndroidStudioProjects/Sunshine/app/src/main/res/drawable/touch_selector.xml -->

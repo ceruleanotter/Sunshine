@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/values-v14/styles.xml -->
+    <!-- From: file:/home/lyla/AndroidStudioProjects/Sunshine/app/src/main/res/values-v14/styles.xml -->
     <eat-comment />
 
     <style name="ActionBar.Solid.Sunshine" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
@@ -20,7 +20,7 @@
     <style name="ForecastTheme" parent="AppTheme">
         <item name="android:actionBarStyle">@style/ActionBar.Solid.Sunshine.NoTitle</item>
     </style>
-    <!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/res/values-v14/values.xml -->
+    <!-- From: file:/home/lyla/AndroidStudioProjects/Sunshine/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/res/values-v14/values.xml -->
     <eat-comment />
 
     <style name="TextAppearance.AppCompat.Base.SearchResult.Subtitle" parent="@android:TextAppearance.Holo.SearchResult.Subtitle" />

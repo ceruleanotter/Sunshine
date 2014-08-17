@@ -113,4 +113,4 @@
             android:id="@+id/faceView"/>
     </LinearLayout>
 
-</ScrollView><!-- From: file:/Users/lyla/Documents/Udacity/Courses/CS444/Projects/Sunshine/app/src/main/res/layout/fragment_detail.xml -->
+</ScrollView><!-- From: file:/home/lyla/AndroidStudioProjects/Sunshine/app/src/main/res/layout/fragment_detail.xml -->
