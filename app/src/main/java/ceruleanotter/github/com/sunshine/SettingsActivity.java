@@ -37,6 +37,7 @@ public class SettingsActivity extends PreferenceActivity
         // TODO: Add preferences
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_location)));
         bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_units)));
+        bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_notifications)));
 
     }
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -56,14 +57,20 @@ public class SettingsActivity extends PreferenceActivity
     private void bindPreferenceSummaryToValue(Preference preference) {
         mBindingPreference = true;
         // Set the listener to watch for value changes.
-        preference.setOnPreferenceChangeListener(this);
+
 
         // Trigger the listener immediately with the preference's
         // current value.
-        onPreferenceChange(preference,
-                PreferenceManager
-                        .getDefaultSharedPreferences(preference.getContext())
-                        .getString(preference.getKey(), ""));
+
+        if (preference.getKey() != this.getString(R.string.pref_key_notifications)) {
+
+            preference.setOnPreferenceChangeListener(this);
+            onPreferenceChange(preference,
+                    PreferenceManager
+                            .getDefaultSharedPreferences(preference.getContext())
+                            .getString(preference.getKey(), "")
+            );
+        }
         mBindingPreference = false;
     }
 

@@ -599,12 +599,12 @@
     <string name="detail_share">Share Weather</string>
     <string name="forecast_map">Map Location</string>
     <string name="forecast_refresh">Refresh</string>
-    <string name="format_full_friendly_date"><ns1:g id="day_of_week">%1$s</ns1:g>, <ns1:g id="date">%2$s</ns1:g></string>
-    <string name="format_humidity">Humidity: <ns1:g id="humidity">%1.0f</ns1:g> %%</string>
-    <string name="format_pressure">Pressure: <ns1:g id="pressure">%1.0f</ns1:g> hPa</string>
+    <string name="format_full_friendly_date"><ns1:g id="day_of_week">%1$s</ns1:g>,  <ns1:g id="date">%2$s</ns1:g></string>
+    <string name="format_humidity">Humidity:  <ns1:g id="humidity">%1.0f</ns1:g> %%</string>
+    <string name="format_pressure">Pressure:  <ns1:g id="pressure">%1.0f</ns1:g> hPa</string>
     <string name="format_temperature"><ns1:g id="temp">%1.0f</ns1:g>\u00B0</string>
-    <string name="format_wind_kmh">    Wind: <ns1:g id="speed">%1$1.0f</ns1:g> km/h <ns1:g id="direction">%2$s</ns1:g></string>
-    <string name="format_wind_mph">    Wind: <ns1:g id="speed">%1$1.0f</ns1:g> mph <ns1:g id="direction">%2$s</ns1:g></string>
+    <string name="format_wind_kmh">    Wind:  <ns1:g id="speed">%1$1.0f</ns1:g> km/h  <ns1:g id="direction">%2$s</ns1:g></string>
+    <string name="format_wind_mph">    Wind:  <ns1:g id="speed">%1$1.0f</ns1:g> mph  <ns1:g id="direction">%2$s</ns1:g></string>
     <string name="hello_world">Hello world!</string>
     <string name="high">21°</string>
     <string name="low">4°</string>
@@ -614,12 +614,14 @@
     <string name="pref_default_display_name">John Smith</string>
     <string name="pref_default_location" translatable="false">77096</string>
     <string name="pref_default_units" translatable="false">@string/pref_metric_units</string>
+    <string name="pref_description_notifications" translatable="false">Enable notifications?</string>
     <string name="pref_description_social_recommendations">Recommendations for people to contact based on your message history</string>
     <string name="pref_header_data_sync">Data &amp; sync</string>
     <string name="pref_header_general">General</string>
     <string name="pref_header_notifications">Notifications</string>
     <string name="pref_imperial_units">Imperial</string>
     <string name="pref_key_location" translatable="false">location</string>
+    <string name="pref_key_notifications" translatable="false">notifications</string>
     <string name="pref_key_units" translatable="false">units</string>
     <string name="pref_metric_units">Metric</string>
     <string name="pref_ringtone_silent">Silent</string>
@@ -627,6 +629,7 @@
     <string name="pref_title_display_name">Display name</string>
     <string name="pref_title_location" translatable="false">Location</string>
     <string name="pref_title_new_message_notifications">New message notifications</string>
+    <string name="pref_title_notifications" translatable="false">Notifications</string>
     <string name="pref_title_ringtone">Ringtone</string>
     <string name="pref_title_social_recommendations">Enable social recommendations</string>
     <string name="pref_title_sync_frequency">Sync frequency</string>

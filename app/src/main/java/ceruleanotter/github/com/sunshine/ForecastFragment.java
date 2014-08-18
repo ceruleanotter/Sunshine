@@ -4,10 +4,8 @@ package ceruleanotter.github.com.sunshine;
  * Created by lyla on 7/13/14.
  */
 
-import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -75,7 +73,9 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
             WeatherEntry.COLUMN_MAX_TEMP,
             WeatherEntry.COLUMN_MIN_TEMP,
             LocationEntry.COLUMN_LOCATION_SETTING,
-            WeatherEntry.COLUMN_WEATHER_ID
+            WeatherEntry.COLUMN_WEATHER_ID,
+            LocationEntry.COLUMN_COORD_LAT,
+            LocationEntry.COLUMN_COORD_LONG
     };
 
     // These indices are tied to FORECAST_COLUMNS.  If FORECAST_COLUMNS changes, these
@@ -87,6 +87,8 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     public static final int COL_WEATHER_MIN_TEMP = 4;
     public static final int COL_LOCATION_SETTING = 5;
     public static final int COL_WEATHER_ICON_ID = 6;
+    public static final int COL_COORD_LAT = 7;
+    public static final int COL_COORD_LONG = 8;
 
 
     public ForecastFragment() {
@@ -113,12 +115,26 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
         }
 
         if (item.getItemId() == R.id.action_map){
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity().getApplicationContext());
-            String zipcodeLocation = prefs.getString(getString(R.string.pref_key_location), getString(R.string.pref_default_location));
+            Uri geolocationUri = null;
+
+            if (mForecastAdapter != null) {
+                Cursor c = mForecastAdapter.getCursor();
+                if (c != null) {
+                    c.moveToPosition(0);
+                    String lat = c.getString(COL_COORD_LAT);
+                    String lon = c.getString(COL_COORD_LONG);
+                    geolocationUri = Uri.parse("geo:" + lat+","+lon);
+                }
+            } else {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity().getApplicationContext());
+                String zipcodeLocation = prefs.getString(getString(R.string.pref_key_location), getString(R.string.pref_default_location));
+                geolocationUri = Uri.parse("geo:0,0?q=" + zipcodeLocation);
+            }
+            Log.e(LOG_TAG, "geo location is " + geolocationUri);
 
 
             Intent mapIntent = new Intent(Intent.ACTION_VIEW);
-            mapIntent.setData(Uri.parse("geo:0,0?q=" + zipcodeLocation));
+            mapIntent.setData(geolocationUri);
             if (mapIntent.resolveActivity(getActivity().getPackageManager()) != null) {
                 startActivity(mapIntent);
             } else {
