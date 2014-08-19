@@ -54,9 +54,7 @@
             android:exported="false"/>
 
         <!-- Note, in the android article, it said you should have provider appended to the authorities, it doesn't in the udacity git account though -->
-        <service android:name=".service.SunshineService"
-            />
-        <receiver android:name=".service.SunshineService$AlarmReceiver" android:enabled="true"/>
+
 
 
         <service
