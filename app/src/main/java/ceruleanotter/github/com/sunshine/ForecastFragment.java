@@ -4,9 +4,6 @@ package ceruleanotter.github.com.sunshine;
  * Created by lyla on 7/13/14.
  */
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -33,7 +30,7 @@ import java.util.Date;
 import ceruleanotter.github.com.sunshine.data.WeatherContract;
 import ceruleanotter.github.com.sunshine.data.WeatherContract.LocationEntry;
 import ceruleanotter.github.com.sunshine.data.WeatherContract.WeatherEntry;
-import ceruleanotter.github.com.sunshine.service.SunshineService;
+import ceruleanotter.github.com.sunshine.sync.SunshineSyncAdapter;
 
 
 /**
@@ -218,17 +215,19 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
 
 
     public void updateWeather() {
+        SunshineSyncAdapter.syncImmediately(getActivity());
+
         //ContentResolver.requestSync(account, getString(R.string.content_authority), null);
 
 
         //FetchWeatherTask ft = new FetchWeatherTask(getActivity());
-        Intent alarmIntent = new Intent(getActivity(), SunshineService.AlarmReceiver.class);
-        alarmIntent.putExtra(SunshineService.LOCATION_QUERY, Utility.getPreferredLocation(getActivity()));
+        //Intent alarmIntent = new Intent(getActivity(), SunshineService.AlarmReceiver.class);
+        //alarmIntent.putExtra(SunshineService.LOCATION_QUERY, Utility.getPreferredLocation(getActivity()));
 
-        PendingIntent pi = PendingIntent.getBroadcast(getActivity(), 0,alarmIntent,PendingIntent.FLAG_ONE_SHOT);//getBroadcast(context, 0, i, 0);
+        //PendingIntent pi = PendingIntent.getBroadcast(getActivity(), 0,alarmIntent,PendingIntent.FLAG_ONE_SHOT);//getBroadcast(context, 0, i, 0);
 
-        AlarmManager am=(AlarmManager)getActivity().getSystemService(Context.ALARM_SERVICE);
-        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pi);
+        //AlarmManager am=(AlarmManager)getActivity().getSystemService(Context.ALARM_SERVICE);
+        //am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 5000, pi);
 
         //Log.e(LOG_TAG, "got here");
 
